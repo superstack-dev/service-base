@@ -39,10 +39,6 @@ class Service(metaclass=ABCMeta):
     def name(self) -> str:
         return type(self).__name__
 
-    @property
-    def type(self) -> str:
-        return "default"
-
     async def start(self):
         """
         starts the service, and blocks until 'stop' is called
