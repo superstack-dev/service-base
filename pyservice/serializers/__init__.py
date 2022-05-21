@@ -1,0 +1,1 @@
+from pyservice.serializers.event_serializer import EventSerializer

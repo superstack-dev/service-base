@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  my-service:
+    build:
+      context: ..
+      dockerfile: example_imp/Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - my-rabbit
+    volumes:
+      - .:/pyservice/example_imp
+    command: uvicorn app:app --host 0.0.0.0 --port 8080 --reload --workers 2
+  my-rabbit:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./ignore/rabbit/data/:/var/lib/rabbitmq/
+      - ./ignore/rabbit/log/:/var/log/rabbitmq
