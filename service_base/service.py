@@ -69,7 +69,7 @@ class Service(metaclass=ABCMeta):
         try:
             loop = asyncio.get_event_loop()
             for sig in TERMINATE_SIGNALS:
-                loop.add_signal_handler(sig, lambda s, f: self.stop())
+                loop.add_signal_handler(sig, lambda: self.stop())
         except NotImplementedError:
             if threading.current_thread() is threading.main_thread():
                 for sig in TERMINATE_SIGNALS:
