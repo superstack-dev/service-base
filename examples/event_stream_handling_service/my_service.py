@@ -1,29 +1,17 @@
-
-
 import asyncio
 import logging
-from dataclasses import dataclass
 
 from service_base.event_handling_service import EventHandlingService
-from service_base.devices import EventInputDeviceManager, EventOutputDeviceManager
+from service_base.devices import EventInputDeviceManager
 
 from service_base_events.event import Event
 
 
-@dataclass
-class ServiceConfig:
-    input_device_manager: EventInputDeviceManager
-    output_device_manager: EventOutputDeviceManager
-
-
 class MyService(EventHandlingService[Event]):
     def __init__(self,
-                 config: ServiceConfig,
+                 input_device_manager: EventInputDeviceManager,
                  **kwargs):
-        super().__init__(input_device_manager=config.input_device_manager, **kwargs)
-
-        self._output_device_manager = config.output_device_manager
-        self._output_device_name = config.output_device_name
+        super().__init__(input_device_manager=input_device_manager, **kwargs)
 
         self._logger = logging.getLogger("my_service")
 
