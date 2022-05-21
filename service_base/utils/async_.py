@@ -3,7 +3,7 @@ from collections import AsyncIterator
 
 from aiostream.aiter_utils import aiter, anext
 
-from pyservice import CancellationToken
+from service_base import CancellationToken
 
 
 async def cancellable_aiter(async_iterator: AsyncIterator, cancellation_token: CancellationToken) -> AsyncIterator:

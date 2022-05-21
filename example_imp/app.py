@@ -4,14 +4,14 @@ import time
 from fastapi import FastAPI, Request, Response, BackgroundTasks
 from fastapi.responses import JSONResponse
 
-from pyservice.cancellation_token import CancellationToken
-from pyservice.devices.input_device_manager import EventInputDeviceManager
-from pyservice.devices.output_device_manager import EventOutputDeviceManager
-from pyservice.devices.rabbitmq.rabbit_mq_input_device_manager import RabbitMQInputDeviceManager
-from pyservice.devices.rabbitmq.rabbit_mq_output_device_manager import RabbitMQOutputDeviceManager
-from pyservice.serializers.json_serializer import JsonSerializer
+from service_base.cancellation_token import CancellationToken
+from service_base.devices.input_device_manager import EventInputDeviceManager
+from service_base.devices.output_device_manager import EventOutputDeviceManager
+from service_base.devices.rabbitmq.rabbit_mq_input_device_manager import RabbitMQInputDeviceManager
+from service_base.devices.rabbitmq.rabbit_mq_output_device_manager import RabbitMQOutputDeviceManager
+from service_base.serializers.json_serializer import JsonSerializer
 
-from pyservice_events.event import Event
+from service_base_events.event import Event
 
 from my_service import MyService, ServiceConfig
 

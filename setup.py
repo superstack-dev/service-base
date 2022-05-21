@@ -7,7 +7,7 @@ except ImportError:  # pip >= 10.0.0
     from pip._internal.req import parse_requirements
 from setuptools import find_packages
 
-PACKAGE_NAME = "pyservice"
+PACKAGE_NAME = "service_base"
 
 
 def get_requirements(filename: str) -> List[str]:

@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 from typing import TypeVar, Type
 
-from pyservice.messages import OutputMessage, InputMessage
+from service_base.messages import OutputMessage, InputMessage
 
-from pyservice_events.event import Event
+from service_base_events.event import Event
 
 TResult = TypeVar("TResult")
 

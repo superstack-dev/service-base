@@ -1,8 +1,8 @@
 from abc import ABCMeta, abstractmethod
 
-from pyservice.devices import OutputDevice, EventOutputDevice
-from pyservice.devices.device_manager import DeviceManager
-from pyservice.serializers import EventSerializer
+from service_base.devices import OutputDevice, EventOutputDevice
+from service_base.devices.device_manager import DeviceManager
+from service_base.serializers import EventSerializer
 
 
 class OutputDeviceManager(DeviceManager, metaclass=ABCMeta):

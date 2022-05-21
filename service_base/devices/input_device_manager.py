@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 from typing import TypeVar, Type
 
-from pyservice.devices import InputDevice, EventInputDevice
-from pyservice.devices.device_manager import DeviceManager
-from pyservice.serializers import EventSerializer
+from service_base.devices import InputDevice, EventInputDevice
+from service_base.devices.device_manager import DeviceManager
+from service_base.serializers import EventSerializer
 
 
 class InputDeviceManager(DeviceManager, metaclass=ABCMeta):

@@ -4,9 +4,9 @@ import aio_pika
 from aio_pika import Message
 from pamqp.encode import encode_table_value
 
-from pyservice.devices.output_device import OutputDevice
-from pyservice.devices.rabbitmq.rabbit_mq_device import RabbitMQDevice
-from pyservice.messages import OutputMessage
+from service_base.devices.output_device import OutputDevice
+from service_base.devices.rabbitmq.rabbit_mq_device import RabbitMQDevice
+from service_base.messages import OutputMessage
 
 
 def _encode_header_value(value):

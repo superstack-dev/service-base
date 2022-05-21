@@ -7,7 +7,7 @@ import threading
 from abc import abstractmethod, ABCMeta
 from typing import Optional
 
-from pyservice.cancellation_token import CancellationToken
+from service_base.cancellation_token import CancellationToken
 
 TERMINATE_SIGNALS = (signal.SIGINT, signal.SIGTERM)
 

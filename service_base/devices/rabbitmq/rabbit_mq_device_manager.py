@@ -3,7 +3,7 @@ from typing import Optional, Dict
 
 import aio_pika
 
-from pyservice.devices.device_manager import DeviceManager
+from service_base.devices.device_manager import DeviceManager
 
 
 class RabbitMQDeviceManager(DeviceManager):

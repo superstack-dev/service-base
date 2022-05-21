@@ -3,8 +3,8 @@ from typing import Optional
 
 import aio_pika
 
-from pyservice.devices.device import Device
-from pyservice.devices.rabbitmq.rabbit_mq_device_manager import RabbitMQDeviceManager
+from service_base.devices.device import Device
+from service_base.devices.rabbitmq.rabbit_mq_device_manager import RabbitMQDeviceManager
 
 
 class RabbitMQDevice(Device):

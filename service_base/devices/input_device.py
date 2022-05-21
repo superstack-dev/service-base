@@ -3,11 +3,11 @@ from typing import AsyncIterable, Tuple, TypeVar, Type, Generic, Optional
 
 from aiostream import operator, streamcontext
 
-from pyservice.utils import cancellable_aiter
-from pyservice.cancellation_token import CancellationToken
-from pyservice.devices.device import Device
-from pyservice.messages import InputMessage
-from pyservice.serializers import EventSerializer
+from service_base.utils import cancellable_aiter
+from service_base.cancellation_token import CancellationToken
+from service_base.devices.device import Device
+from service_base.messages import InputMessage
+from service_base.serializers import EventSerializer
 
 
 class InputDevice(Device, metaclass=ABCMeta):

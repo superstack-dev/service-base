@@ -1,8 +1,8 @@
 from typing import Optional
 
-from pyservice.devices.output_device_manager import OutputDeviceManager
-from pyservice.devices.rabbitmq.rabbit_mq_device_manager import RabbitMQDeviceManager
-from pyservice.devices.rabbitmq.rabbit_mq_output_device import RabbitMQOutputDevice
+from service_base.devices.output_device_manager import OutputDeviceManager
+from service_base.devices.rabbitmq.rabbit_mq_device_manager import RabbitMQDeviceManager
+from service_base.devices.rabbitmq.rabbit_mq_output_device import RabbitMQOutputDevice
 
 
 class RabbitMQOutputDeviceManager(RabbitMQDeviceManager, OutputDeviceManager):

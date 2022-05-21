@@ -1,6 +1,6 @@
-from pyservice.devices.input_device_manager import InputDeviceManager
-from pyservice.devices.rabbitmq.rabbit_mq_device_manager import RabbitMQDeviceManager
-from pyservice.devices.rabbitmq.rabbit_mq_input_device import RabbitMQInputDevice
+from service_base.devices.input_device_manager import InputDeviceManager
+from service_base.devices.rabbitmq.rabbit_mq_device_manager import RabbitMQDeviceManager
+from service_base.devices.rabbitmq.rabbit_mq_input_device import RabbitMQInputDevice
 
 
 class RabbitMQInputDeviceManager(RabbitMQDeviceManager, InputDeviceManager):

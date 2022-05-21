@@ -3,10 +3,10 @@ from typing import AsyncIterable, Optional
 
 import aio_pika
 
-from pyservice.cancellation_token import CancellationToken
-from pyservice.messages import InputMessage
-from pyservice.devices.input_device import InputDevice
-from pyservice.devices.rabbitmq.rabbit_mq_device import RabbitMQDevice
+from service_base.cancellation_token import CancellationToken
+from service_base.messages import InputMessage
+from service_base.devices.input_device import InputDevice
+from service_base.devices.rabbitmq.rabbit_mq_device import RabbitMQDevice
 
 
 class RabbitMQInputMessage(InputMessage):

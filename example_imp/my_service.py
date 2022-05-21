@@ -4,9 +4,10 @@ import asyncio
 import logging
 from dataclasses import dataclass
 
-from pyservice_events.event import Event
-from pyservice.event_handling_service import EventHandlingService
-from pyservice.devices import EventInputDeviceManager, EventOutputDeviceManager
+from service_base.event_handling_service import EventHandlingService
+from service_base.devices import EventInputDeviceManager, EventOutputDeviceManager
+
+from service_base_events.event import Event
 
 
 @dataclass

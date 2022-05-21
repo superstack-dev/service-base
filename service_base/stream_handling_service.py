@@ -3,12 +3,12 @@ from typing import Optional, Type, TypeVar, Generic, get_args,  AsyncIterable,  
 
 from aiostream import operator, streamcontext
 
-from pyservice import Service
-from pyservice.cancellation_token import CancellationToken
-from pyservice.devices import EventInputDeviceManager
-from pyservice.messages import InputMessage
+from service_base import Service
+from service_base.cancellation_token import CancellationToken
+from service_base.devices import EventInputDeviceManager
+from service_base.messages import InputMessage
 
-from pyservice_events.event import Event
+from service_base_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 

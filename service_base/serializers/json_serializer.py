@@ -1,9 +1,9 @@
 from typing import TypeVar, Type
 
-from pyservice.messages import InputMessage, OutputMessage
-from pyservice.serializers import EventSerializer
+from service_base.messages import InputMessage, OutputMessage
+from service_base.serializers import EventSerializer
 
-from pyservice_events.event import Event
+from service_base_events.event import Event
 
 TResult = TypeVar("TResult", bound=Event)
 
