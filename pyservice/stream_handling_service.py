@@ -1,13 +1,14 @@
 from abc import abstractmethod, ABCMeta
-from typing import Optional, Type, TypeVar, Generic, get_args, Callable, AsyncIterable, Awaitable, Tuple
+from typing import Optional, Type, TypeVar, Generic, get_args,  AsyncIterable,  Tuple
 
 from aiostream import operator, streamcontext
 
-from pyservice.event import Event
 from pyservice import Service
 from pyservice.cancellation_token import CancellationToken
 from pyservice.devices import EventInputDeviceManager
 from pyservice.messages import InputMessage
+
+from pyservice_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 

@@ -1,9 +1,10 @@
 from abc import abstractmethod, ABCMeta
 from typing import TypeVar, Generic, AsyncIterable, Tuple
 
-from pyservice.event import Event
 from pyservice.messages import InputMessage
 from pyservice.stream_handling_service import StreamHandlingService
+
+from pyservice_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 

@@ -1,9 +1,10 @@
 from abc import ABCMeta, abstractmethod
 
-from pyservice.event import Event
 from pyservice.devices import Device
 from pyservice.messages import OutputMessage
 from pyservice.serializers import EventSerializer
+
+from pyservice_events.event import Event
 
 
 class OutputDevice(Device, metaclass=ABCMeta):
