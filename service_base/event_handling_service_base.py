@@ -9,7 +9,10 @@ from service_base_events.event import Event
 TEvent = TypeVar("TEvent", bound=Event)
 
 
-class EventHandlingService(StreamHandlingServiceBase[TEvent], Generic[TEvent], metaclass=ABCMeta):
+class EventHandlingService(StreamHandlingServiceBase[TEvent], metaclass=ABCMeta):
+    """
+    An abstract class that can be used to create subclasses which are services that continuously read events from an input device. It is a simplification of the StreamHandlingServiceBase ABC which implements its _handle_stream method but adds a new method _handle_event which subclasses must implement. This can be used to specify how to handle singular events instead of an event stream.
+    """
     async def _inner_start(self):
         await self._input_device_manager.connect()
 

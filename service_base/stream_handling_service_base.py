@@ -12,12 +12,12 @@ from service_base_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 
-"""
-An abstract class which can be used to create 
-"""
-
 
 class StreamHandlingServiceBase(Service, Generic[TEvent], metaclass=ABCMeta):
+    """
+    An abstract class that can be used to create subclasses which are services that continuously read events from an input device. Subclasses must implement the _handle_stream method which provides the stream of events. This can, for example, be used to aggregate and then handle batches of events.
+    """
+
     def __init__(self, input_device_manager: EventInputDeviceManager, read_timeout: Optional[int] = None, **kwargs):
         super().__init__(**kwargs)
 
