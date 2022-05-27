@@ -2,14 +2,14 @@ from abc import abstractmethod, ABCMeta
 from typing import TypeVar, Generic, AsyncIterable, Tuple
 
 from service_base.messages import InputMessage
-from service_base.stream_handling_service import StreamHandlingService
+from service_base.stream_handling_service_base import StreamHandlingServiceBase
 
 from service_base_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 
 
-class EventHandlingService(StreamHandlingService[TEvent], Generic[TEvent], metaclass=ABCMeta):
+class EventHandlingService(StreamHandlingServiceBase[TEvent], Generic[TEvent], metaclass=ABCMeta):
     async def _inner_start(self):
         await self._input_device_manager.connect()
 

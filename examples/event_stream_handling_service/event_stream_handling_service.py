@@ -6,7 +6,7 @@ from typing import TypeVar, Generic, AsyncIterable,  Tuple
 
 from service_base.devices import EventInputDeviceManager
 from service_base.messages import InputMessage
-from service_base.stream_handling_service import StreamHandlingService
+from service_base.stream_handling_service_base import StreamHandlingServiceBase
 
 from service_base_events.event import Event
 
@@ -14,7 +14,7 @@ from service_base_events.event import Event
 TEvent = TypeVar("TEvent", bound=Event)
 
 
-class EventStreamHandlingService(StreamHandlingService[Event], Generic[TEvent], metaclass=ABCMeta):
+class EventStreamHandlingService(StreamHandlingServiceBase[Event]):
     def __init__(self,
                  input_device_manager: EventInputDeviceManager,
                  chunk_size: int,

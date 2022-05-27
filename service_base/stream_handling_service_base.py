@@ -12,8 +12,12 @@ from service_base_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 
+"""
+An abstract class which can be used to create 
+"""
 
-class StreamHandlingService(Service, Generic[TEvent], metaclass=ABCMeta):
+
+class StreamHandlingServiceBase(Service, Generic[TEvent], metaclass=ABCMeta):
     def __init__(self, input_device_manager: EventInputDeviceManager, read_timeout: Optional[int] = None, **kwargs):
         super().__init__(**kwargs)
 

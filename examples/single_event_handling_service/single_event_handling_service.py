@@ -1,13 +1,13 @@
 import asyncio
 import logging
 
-from service_base.event_handling_service import EventHandlingService
+from service_base.event_handling_service_base import EventHandlingServiceBase
 from service_base.devices import EventInputDeviceManager
 
 from service_base_events.event import Event
 
 
-class SingleEventHandlingService(EventHandlingService[Event]):
+class SingleEventHandlingService(EventHandlingServiceBase[Event]):
     def __init__(self,
                  input_device_manager: EventInputDeviceManager,
                  **kwargs):
