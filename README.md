@@ -1,3 +1,7 @@
 # service-base
 
-Base infrastructure for docker services.
+Base infrastructure for python services.
+
+# Components Overview
+
+![service-base-components](./docs/service-base-components.jpg)
