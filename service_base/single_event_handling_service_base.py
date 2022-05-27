@@ -9,7 +9,7 @@ from service_base_events.event import Event
 TEvent = TypeVar("TEvent", bound=Event)
 
 
-class EventHandlingService(EventStreamHandlingServiceBase[TEvent], metaclass=ABCMeta):
+class SingleEventHandlingServiceBase(EventStreamHandlingServiceBase[TEvent], metaclass=ABCMeta):
     """
     An abstract class that can be used to create subclasses which are services that continuously read events from an input device. It is a simplification of the EventStreamHandlingServiceBase ABC which implements its _handle_stream method but adds a new method _handle_event which subclasses must implement. This can be used to specify how to handle singular events instead of an event stream.
     """

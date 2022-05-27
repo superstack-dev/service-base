@@ -63,3 +63,37 @@ class EventInputDevice(Generic[TEvent], Device):
 
     async def _inner_disconnect(self) -> None:
         await self._inner_device.disconnect()
+
+
+@operator
+async def _handle_raw_stream(source):
+    async with streamcontext(source) as streamer:
+        async for message in streamer:  # type: InputMessage
+            try:
+                yield message.getvalue(), message
+            except:
+                await message.rollback()
+                raise
+
+
+class BufferInputDevice(Device):
+    def __init__(self, inner_device: InputDevice):
+        super().__init__(inner_device.name)
+
+        self._inner_device = inner_device
+
+    async def _inner_connect(self):
+        await self._inner_device.connect()
+
+    async def yield_buffer_and_message(self, cancellation_token: CancellationToken, timeout: Optional[int] = None) -> \
+            AsyncIterable[Tuple[bytes, InputMessage]]:
+        if not self._started:
+            raise Exception("Can not read from device that has not been started yet.")
+
+        raw_stream = _handle_raw_stream(self._inner_device.read(cancellation_token, timeout))
+        async with raw_stream.stream() as iterator:
+            async for buffer, message in iterator:
+                yield buffer, message
+
+    async def _inner_disconnect(self) -> None:
+        await self._inner_device.disconnect()
