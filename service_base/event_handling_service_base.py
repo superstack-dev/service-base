@@ -2,16 +2,16 @@ from abc import abstractmethod, ABCMeta
 from typing import TypeVar, Generic, AsyncIterable, Tuple
 
 from service_base.messages import InputMessage
-from service_base.stream_handling_service_base import StreamHandlingServiceBase
+from service_base.event_stream_handling_service_base import EventStreamHandlingServiceBase
 
 from service_base_events.event import Event
 
 TEvent = TypeVar("TEvent", bound=Event)
 
 
-class EventHandlingService(StreamHandlingServiceBase[TEvent], metaclass=ABCMeta):
+class EventHandlingService(EventStreamHandlingServiceBase[TEvent], metaclass=ABCMeta):
     """
-    An abstract class that can be used to create subclasses which are services that continuously read events from an input device. It is a simplification of the StreamHandlingServiceBase ABC which implements its _handle_stream method but adds a new method _handle_event which subclasses must implement. This can be used to specify how to handle singular events instead of an event stream.
+    An abstract class that can be used to create subclasses which are services that continuously read events from an input device. It is a simplification of the EventStreamHandlingServiceBase ABC which implements its _handle_stream method but adds a new method _handle_event which subclasses must implement. This can be used to specify how to handle singular events instead of an event stream.
     """
     async def _inner_start(self):
         await self._input_device_manager.connect()
